@@ -1,0 +1,15 @@
+{% comment %}
+  <h1>THEME BOYS</h1>
+  <img src="{{'boat1.jpeg'|asset_url}}"/>
+{% endcomment %}
+<h2>{{ collections.frontpage.title }}</h2>
+{% for product in collections.frontpage.products %}
+  <div>
+    <a href="{{product.url}}">
+      <img src="{{product.featured_image | image_url: width: 400}}">
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.price | money }}</p>
+    </a>
+  </div>
+  {{- product.title | link_to: product.url }}
+{% endfor %}
